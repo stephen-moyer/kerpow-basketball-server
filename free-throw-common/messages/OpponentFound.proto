@@ -1,0 +1,9 @@
+package com.kerpow.games.freethrow.common;
+
+option java_package = "com.kerpow.games.freethrow.common.message";
+
+message OpponentFound {
+
+    repeated int32 opponents = 1;
+
+}

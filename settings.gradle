@@ -1,0 +1,3 @@
+rootProject.name = 'free-throw-server'
+include 'free-throw-common'
+

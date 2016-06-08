@@ -1,0 +1,10 @@
+package com.kerpow.games.freethrow.common;
+
+option java_package = "com.kerpow.games.freethrow.common.message";
+
+message Shot {
+
+    required int32 time = 1;
+    required int32 owner = 2;
+
+}

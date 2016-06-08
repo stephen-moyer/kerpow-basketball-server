@@ -1,0 +1,10 @@
+package com.kerpow.games.freethrow.common;
+
+option java_package = "com.kerpow.games.freethrow.common.message";
+
+message Validation {
+
+    required int32 id = 1;
+    required string key = 2;
+
+}
