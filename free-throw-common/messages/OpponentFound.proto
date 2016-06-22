@@ -1,6 +1,6 @@
 package com.kerpow.games.freethrow.common;
 
-option java_package = "com.kerpow.games.freethrow.common.message";
+option java_package = "com.kerpow.games.freethrow.common.message.messages";
 
 message OpponentFound {
 

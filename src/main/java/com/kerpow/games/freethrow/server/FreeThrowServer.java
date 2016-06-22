@@ -1,8 +1,8 @@
 package com.kerpow.games.freethrow.server;
 
-import com.kerpow.games.freethrow.common.FreeThrowMessageHandlers;
-import com.kerpow.games.freethrow.common.message.ReadyOuterClass;
-import com.kerpow.games.freethrow.common.message.ShotOuterClass;
+import com.kerpow.games.freethrow.common.message.messages.ReadyOuterClass;
+import com.kerpow.games.freethrow.common.message.messages.ShotOuterClass;
+import com.kerpow.games.freethrow.common.message.FreeThrowMessageHandlers;
 import com.kerpow.games.packets.PacketProcessor;
 import com.kerpow.games.server.Player;
 import com.kerpow.games.server.Server;
@@ -16,21 +16,34 @@ import java.util.concurrent.TimeUnit;
 public class FreeThrowServer extends Server<ServerInfo> {
 
     private static final long MATCHMAKING_TICK = 1000;
+    private static final long GAME_TICK = 16;
 
     private static final int GAME_SIZE = 2;
 
     private List<FreeThrowPlayer> matchmakingQueue = new ArrayList<>();
+    private List<FreeThrowGame> games = new ArrayList<>();
 
     public FreeThrowServer(ServerInfo serverInfo) {
         super(serverInfo, new PacketProcessor(FreeThrowMessageHandlers.HANDLERS));
         addValidator(new FreeThrowValidator());
         executorService.scheduleAtFixedRate(this::matchmakingLoop, 0, MATCHMAKING_TICK, TimeUnit.MILLISECONDS);
+        executorService.scheduleAtFixedRate(this::gameLoop, 0, GAME_TICK, TimeUnit.MILLISECONDS);
         getPacketProcessor().<FreeThrowPlayer, ReadyOuterClass.Ready>addListener(ReadyOuterClass.Ready.class, (player, message) -> {
             player.game.ready(player);
         });
         getPacketProcessor().<FreeThrowPlayer, ShotOuterClass.Shot>addListener(ShotOuterClass.Shot.class, (player, message) -> {
             player.game.shot(player, message);
         });
+    }
+
+    private void gameLoop() {
+        try {
+            for (int i = 0; i < games.size(); i++) {
+                games.get(i).process();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void matchmakingLoop() {
@@ -43,6 +56,7 @@ public class FreeThrowServer extends Server<ServerInfo> {
                     game.players.add(player);
                     matchmakingQueue.remove(0);
                 }
+                games.add(game);
                 game.start();
             }
         }

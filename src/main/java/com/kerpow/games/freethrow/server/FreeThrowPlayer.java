@@ -9,6 +9,7 @@ public class FreeThrowPlayer extends Player {
 
     public FreeThrowGame game;
     public boolean ready;
+    public int score = 0;
 
     public FreeThrowPlayer(Channel channel) {
         super(channel);

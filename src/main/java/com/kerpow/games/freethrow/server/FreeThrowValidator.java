@@ -1,6 +1,6 @@
 package com.kerpow.games.freethrow.server;
 
-import com.kerpow.games.freethrow.common.message.ValidationOuterClass;
+import com.kerpow.games.freethrow.common.message.messages.ValidationOuterClass;
 import com.kerpow.games.server.Player;
 
 import java.util.concurrent.CompletableFuture;
@@ -27,7 +27,7 @@ public class FreeThrowValidator implements com.kerpow.games.server.validation.Va
         ValidationOuterClass.Validation message = (ValidationOuterClass.Validation) o;
         FreeThrowPlayer player = (FreeThrowPlayer) p;
         player.id = message.getId();
-        //eventually validate against api using the message.getToken()
+        //eventually validate against api using the messages.getToken()
         return CompletableFuture.completedFuture(true);
     }
 }

@@ -19,5 +19,6 @@
     <orderEntry type="library" name="Gradle: com.google.protobuf:protobuf-java:2.6.1" level="project" />
     <orderEntry type="library" name="Gradle: com.kerpow.games.packets:core:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Gradle: com.kerpow.games.packets:protobuf:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Gradle: org.jbox2d:jbox2d-library:2.2.1.1" level="project" />
   </component>
 </module>

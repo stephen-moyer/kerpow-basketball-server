@@ -2,6 +2,9 @@ package com.kerpow.games.freethrow.common;
 
 option java_package = "com.kerpow.games.freethrow.common.message.messages";
 
-message Ready {
+message Scored {
+
+    required int32 id = 1;
+    required int32 score = 2;
 
 }
