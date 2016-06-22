@@ -13,20 +13,47 @@ public final class ShotOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int32 time = 1;</code>
+     * <code>required float powerX = 1;</code>
      */
-    boolean hasTime();
+    boolean hasPowerX();
     /**
-     * <code>required int32 time = 1;</code>
+     * <code>required float powerX = 1;</code>
      */
-    int getTime();
+    float getPowerX();
 
     /**
-     * <code>required int32 owner = 2;</code>
+     * <code>required float powerY = 2;</code>
+     */
+    boolean hasPowerY();
+    /**
+     * <code>required float powerY = 2;</code>
+     */
+    float getPowerY();
+
+    /**
+     * <code>required float ballY = 3;</code>
+     */
+    boolean hasBallY();
+    /**
+     * <code>required float ballY = 3;</code>
+     */
+    float getBallY();
+
+    /**
+     * <code>required float ballVelY = 4;</code>
+     */
+    boolean hasBallVelY();
+    /**
+     * <code>required float ballVelY = 4;</code>
+     */
+    float getBallVelY();
+
+    /**
+     * <code>required int32 owner = 5;</code>
      */
     boolean hasOwner();
     /**
-     * <code>required int32 owner = 2;</code>
+     * <code>required int32 owner = 5;</code>
      */
     int getOwner();
   }
@@ -82,13 +109,28 @@ public final class ShotOuterClass {
               }
               break;
             }
-            case 8: {
+            case 13: {
               bitField0_ |= 0x00000001;
-              time_ = input.readInt32();
+              powerX_ = input.readFloat();
               break;
             }
-            case 16: {
+            case 21: {
               bitField0_ |= 0x00000002;
+              powerY_ = input.readFloat();
+              break;
+            }
+            case 29: {
+              bitField0_ |= 0x00000004;
+              ballY_ = input.readFloat();
+              break;
+            }
+            case 37: {
+              bitField0_ |= 0x00000008;
+              ballVelY_ = input.readFloat();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
               owner_ = input.readInt32();
               break;
             }
@@ -132,38 +174,86 @@ public final class ShotOuterClass {
     }
 
     private int bitField0_;
-    public static final int TIME_FIELD_NUMBER = 1;
-    private int time_;
+    public static final int POWERX_FIELD_NUMBER = 1;
+    private float powerX_;
     /**
-     * <code>required int32 time = 1;</code>
+     * <code>required float powerX = 1;</code>
      */
-    public boolean hasTime() {
+    public boolean hasPowerX() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required int32 time = 1;</code>
+     * <code>required float powerX = 1;</code>
      */
-    public int getTime() {
-      return time_;
+    public float getPowerX() {
+      return powerX_;
     }
 
-    public static final int OWNER_FIELD_NUMBER = 2;
-    private int owner_;
+    public static final int POWERY_FIELD_NUMBER = 2;
+    private float powerY_;
     /**
-     * <code>required int32 owner = 2;</code>
+     * <code>required float powerY = 2;</code>
      */
-    public boolean hasOwner() {
+    public boolean hasPowerY() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required int32 owner = 2;</code>
+     * <code>required float powerY = 2;</code>
+     */
+    public float getPowerY() {
+      return powerY_;
+    }
+
+    public static final int BALLY_FIELD_NUMBER = 3;
+    private float ballY_;
+    /**
+     * <code>required float ballY = 3;</code>
+     */
+    public boolean hasBallY() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required float ballY = 3;</code>
+     */
+    public float getBallY() {
+      return ballY_;
+    }
+
+    public static final int BALLVELY_FIELD_NUMBER = 4;
+    private float ballVelY_;
+    /**
+     * <code>required float ballVelY = 4;</code>
+     */
+    public boolean hasBallVelY() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required float ballVelY = 4;</code>
+     */
+    public float getBallVelY() {
+      return ballVelY_;
+    }
+
+    public static final int OWNER_FIELD_NUMBER = 5;
+    private int owner_;
+    /**
+     * <code>required int32 owner = 5;</code>
+     */
+    public boolean hasOwner() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>required int32 owner = 5;</code>
      */
     public int getOwner() {
       return owner_;
     }
 
     private void initFields() {
-      time_ = 0;
+      powerX_ = 0F;
+      powerY_ = 0F;
+      ballY_ = 0F;
+      ballVelY_ = 0F;
       owner_ = 0;
     }
     private byte memoizedIsInitialized = -1;
@@ -172,7 +262,19 @@ public final class ShotOuterClass {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasTime()) {
+      if (!hasPowerX()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPowerY()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasBallY()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasBallVelY()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -188,10 +290,19 @@ public final class ShotOuterClass {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, time_);
+        output.writeFloat(1, powerX_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, owner_);
+        output.writeFloat(2, powerY_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeFloat(3, ballY_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeFloat(4, ballVelY_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt32(5, owner_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -204,11 +315,23 @@ public final class ShotOuterClass {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, time_);
+          .computeFloatSize(1, powerX_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, owner_);
+          .computeFloatSize(2, powerY_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(3, ballY_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(4, ballVelY_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, owner_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -327,10 +450,16 @@ public final class ShotOuterClass {
 
       public Builder clear() {
         super.clear();
-        time_ = 0;
+        powerX_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000001);
-        owner_ = 0;
+        powerY_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000002);
+        ballY_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        ballVelY_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        owner_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -362,9 +491,21 @@ public final class ShotOuterClass {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.time_ = time_;
+        result.powerX_ = powerX_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
+        }
+        result.powerY_ = powerY_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.ballY_ = ballY_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.ballVelY_ = ballVelY_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
         }
         result.owner_ = owner_;
         result.bitField0_ = to_bitField0_;
@@ -383,8 +524,17 @@ public final class ShotOuterClass {
 
       public Builder mergeFrom(com.kerpow.games.freethrow.common.message.ShotOuterClass.Shot other) {
         if (other == com.kerpow.games.freethrow.common.message.ShotOuterClass.Shot.getDefaultInstance()) return this;
-        if (other.hasTime()) {
-          setTime(other.getTime());
+        if (other.hasPowerX()) {
+          setPowerX(other.getPowerX());
+        }
+        if (other.hasPowerY()) {
+          setPowerY(other.getPowerY());
+        }
+        if (other.hasBallY()) {
+          setBallY(other.getBallY());
+        }
+        if (other.hasBallVelY()) {
+          setBallVelY(other.getBallVelY());
         }
         if (other.hasOwner()) {
           setOwner(other.getOwner());
@@ -394,7 +544,19 @@ public final class ShotOuterClass {
       }
 
       public final boolean isInitialized() {
-        if (!hasTime()) {
+        if (!hasPowerX()) {
+          
+          return false;
+        }
+        if (!hasPowerY()) {
+          
+          return false;
+        }
+        if (!hasBallY()) {
+          
+          return false;
+        }
+        if (!hasBallVelY()) {
           
           return false;
         }
@@ -424,65 +586,161 @@ public final class ShotOuterClass {
       }
       private int bitField0_;
 
-      private int time_ ;
+      private float powerX_ ;
       /**
-       * <code>required int32 time = 1;</code>
+       * <code>required float powerX = 1;</code>
        */
-      public boolean hasTime() {
+      public boolean hasPowerX() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required int32 time = 1;</code>
+       * <code>required float powerX = 1;</code>
        */
-      public int getTime() {
-        return time_;
+      public float getPowerX() {
+        return powerX_;
       }
       /**
-       * <code>required int32 time = 1;</code>
+       * <code>required float powerX = 1;</code>
        */
-      public Builder setTime(int value) {
+      public Builder setPowerX(float value) {
         bitField0_ |= 0x00000001;
-        time_ = value;
+        powerX_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 time = 1;</code>
+       * <code>required float powerX = 1;</code>
        */
-      public Builder clearTime() {
+      public Builder clearPowerX() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        time_ = 0;
+        powerX_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float powerY_ ;
+      /**
+       * <code>required float powerY = 2;</code>
+       */
+      public boolean hasPowerY() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required float powerY = 2;</code>
+       */
+      public float getPowerY() {
+        return powerY_;
+      }
+      /**
+       * <code>required float powerY = 2;</code>
+       */
+      public Builder setPowerY(float value) {
+        bitField0_ |= 0x00000002;
+        powerY_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required float powerY = 2;</code>
+       */
+      public Builder clearPowerY() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        powerY_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float ballY_ ;
+      /**
+       * <code>required float ballY = 3;</code>
+       */
+      public boolean hasBallY() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required float ballY = 3;</code>
+       */
+      public float getBallY() {
+        return ballY_;
+      }
+      /**
+       * <code>required float ballY = 3;</code>
+       */
+      public Builder setBallY(float value) {
+        bitField0_ |= 0x00000004;
+        ballY_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required float ballY = 3;</code>
+       */
+      public Builder clearBallY() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        ballY_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private float ballVelY_ ;
+      /**
+       * <code>required float ballVelY = 4;</code>
+       */
+      public boolean hasBallVelY() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required float ballVelY = 4;</code>
+       */
+      public float getBallVelY() {
+        return ballVelY_;
+      }
+      /**
+       * <code>required float ballVelY = 4;</code>
+       */
+      public Builder setBallVelY(float value) {
+        bitField0_ |= 0x00000008;
+        ballVelY_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required float ballVelY = 4;</code>
+       */
+      public Builder clearBallVelY() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        ballVelY_ = 0F;
         onChanged();
         return this;
       }
 
       private int owner_ ;
       /**
-       * <code>required int32 owner = 2;</code>
+       * <code>required int32 owner = 5;</code>
        */
       public boolean hasOwner() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>required int32 owner = 2;</code>
+       * <code>required int32 owner = 5;</code>
        */
       public int getOwner() {
         return owner_;
       }
       /**
-       * <code>required int32 owner = 2;</code>
+       * <code>required int32 owner = 5;</code>
        */
       public Builder setOwner(int value) {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000010;
         owner_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 owner = 2;</code>
+       * <code>required int32 owner = 5;</code>
        */
       public Builder clearOwner() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
         owner_ = 0;
         onChanged();
         return this;
@@ -514,9 +772,10 @@ public final class ShotOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\nShot.proto\022!com.kerpow.games.freethrow" +
-      ".common\"#\n\004Shot\022\014\n\004time\030\001 \002(\005\022\r\n\005owner\030\002" +
-      " \002(\005B+\n)com.kerpow.games.freethrow.commo" +
-      "n.message"
+      ".common\"V\n\004Shot\022\016\n\006powerX\030\001 \002(\002\022\016\n\006power" +
+      "Y\030\002 \002(\002\022\r\n\005ballY\030\003 \002(\002\022\020\n\010ballVelY\030\004 \002(\002" +
+      "\022\r\n\005owner\030\005 \002(\005B+\n)com.kerpow.games.free" +
+      "throw.common.message"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -535,7 +794,7 @@ public final class ShotOuterClass {
     internal_static_com_kerpow_games_freethrow_common_Shot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_com_kerpow_games_freethrow_common_Shot_descriptor,
-        new java.lang.String[] { "Time", "Owner", });
+        new java.lang.String[] { "PowerX", "PowerY", "BallY", "BallVelY", "Owner", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

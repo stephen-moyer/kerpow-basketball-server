@@ -4,7 +4,10 @@ option java_package = "com.kerpow.games.freethrow.common.message";
 
 message Shot {
 
-    required int32 time = 1;
-    required int32 owner = 2;
+    required float powerX = 1;
+    required float powerY = 2;
+    required float ballY = 3;
+    required float ballVelY = 4;
+    required int32 owner = 5;
 
 }
